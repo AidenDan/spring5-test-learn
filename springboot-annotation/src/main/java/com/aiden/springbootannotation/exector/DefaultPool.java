@@ -25,7 +25,7 @@ public class DefaultPool {
                 16,
                 1000,
                 TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(100),
+                new ArrayBlockingQueue<>(1000),
                 (runner) -> new Thread(new ThreadGroup("my-thread-group"), runner, "thread-name-" + atomicInteger.getAndIncrement()),
                 (runner, poolExecutor) -> {
                     throw new RuntimeException("pool is maxing");
